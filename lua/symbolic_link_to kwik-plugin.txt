@@ -1,0 +1,3 @@
+```
+ln -s /Users/ymmtny/Documents/GitHub/kwik-visual-code/develop/Solar2D/kwik5-sample-books/Solar2D/plugin ./plugin
+```
