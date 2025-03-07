@@ -1,2 +1,5 @@
 build
 plugin
+.env
+plugin-kwik.zip
+plugin.data.tgz
