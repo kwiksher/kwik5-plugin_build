@@ -79,6 +79,7 @@ find "$BUILD_DIR" -name ".github" -type d -exec rm -rf {} \; 2>/dev/null || true
 find "$BUILD_DIR" -name ".gitignore" -type d -exec rm -rf {} \; 2>/dev/null || true
 find "$BUILD_DIR" -name "LICENSE" -type d -exec rm -rf {} \; 2>/dev/null || true
 find "$BUILD_DIR" -name "README.md" -type d -exec rm -rf {} \; 2>/dev/null || true
+find "$BUILD_DIR" -name ".gitignore" -type d -exec rm -rf {} \; 2>/dev/null || true
 
 
 # Compile lua files.
