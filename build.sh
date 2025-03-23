@@ -112,6 +112,7 @@ cd "$BUILD_DIR" > /dev/null
 cd - > /dev/null
 
 find ./build/plugins/2017.3032/lua/lua_51/plugin -name ".DS_Store" -delete
+find ./build/plugins/2017.3032/lua/lua_51/plugin -name ".gitignore" -delete
 tar -czvf plugin.data.tgz -C ./build/plugins/2017.3032/lua/lua_51/plugin .
 
 # Create data.tgz without template folder
