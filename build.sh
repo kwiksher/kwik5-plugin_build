@@ -80,7 +80,7 @@ find "$BUILD_DIR" -name ".gitignore" -type d -exec rm -rf {} \; 2>/dev/null || t
 find "$BUILD_DIR" -name "LICENSE" -type d -exec rm -rf {} \; 2>/dev/null || true
 find "$BUILD_DIR" -name "README.md" -type d -exec rm -rf {} \; 2>/dev/null || true
 find "$BUILD_DIR" -name ".gitignore" -type d -exec rm -rf {} \; 2>/dev/null || true
-
+find "$BUILD_DIR" -name ".VSCodeCounter" -type d -exec rm -rf {} \; 2>/dev/null || true
 
 # Compile lua files.
 echo ""
@@ -113,6 +113,10 @@ cd - > /dev/null
 
 find ./build/plugins/2017.3032/lua/lua_51/plugin -name ".DS_Store" -delete
 tar -czvf plugin.data.tgz -C ./build/plugins/2017.3032/lua/lua_51/plugin .
+
+# Create data.tgz without template folder
+echo "[creating data.tgz]"
+tar --exclude='*/template/*' -czvf data.tgz -C ./build/plugins/2017.3032/lua/lua_51/plugin .
 
 echo ""
 echo "[complete]"
@@ -170,11 +174,11 @@ UPLOAD_RESPONSE=$(curl -s -X POST \
 
 # Check if upload was successful
 if [[ "$UPLOAD_RESPONSE" == *"browser_download_url"* ]]; then
-  DOWNLOAD_URL=$(echo "$UPLOAD_RESPONSE" | grep -o '"browser_download_url": "[^"]*' | cut -d'"' -f4)
+  # DOWNLOAD_URL=$(echo "$UPLOAD_RESPONSE" | grep -o '"browser_download_url": "[^"]*' | cut -d'"' -f4)
   echo "Upload successful!"
-  echo "Download URL: $DOWNLOAD_URL"
+  echo "Download URL: https://github.com/kwiksher/kwik5-project-template/releases/latest"
 else
   echo "Error uploading asset:"
   echo "$UPLOAD_RESPONSE"
-  exit 1
+  # exit 1
 fi
